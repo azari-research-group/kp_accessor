@@ -1,0 +1,27 @@
+[project]
+name = "kp-accessor"
+version = "2025.8.14"
+requires-python = ">=3.9"
+description = "Python function for getting kP value."
+readme = "README.md"
+license = "CC-BY-4.0"
+authors = [
+    {name = "Dawn McKnight"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
+
+dependencies = [
+    "pandas",
+    "sortedcontainers",
+    "typing_extensions"
+]
+
+[tool.setuptools]
+packages = ["kp_accessor"]
