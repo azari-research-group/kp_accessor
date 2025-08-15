@@ -31,7 +31,6 @@ class KpAccessor:
     """
     def __init__(self) -> None:
         self._sd: SortedDict = SortedDict()
-        self._update_cache(force_run=False)
 
     def _update_cache(self, force_run: bool = True) -> None:
         _download_kp_values_textfile(force_run=force_run)
@@ -140,8 +139,9 @@ class KpAccessor:
         return self.get_kp_from_datetime(dt)
 
 
+kp_accessor = KpAccessor()
+
 if __name__ == "__main__":
-    kp_accessor = KpAccessor()
     dt = datetime(2023, 10, 1, 12, 0, tzinfo=timezone.utc)
     try:
         kp_value = kp_accessor(dt)

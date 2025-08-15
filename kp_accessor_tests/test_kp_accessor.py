@@ -6,8 +6,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 from sortedcontainers import SortedDict
 
-from kp_accessor import KpAccessor
-
+from kp_accessor.kp_accessor import KpAccessor
 
 # ---- Helpers -----------------------------------------------------------------
 
@@ -47,7 +46,9 @@ def build_accessor(monkeypatch, with_gap: bool = False) -> KpAccessor:
         self._sd.update(fake_sd)
 
     monkeypatch.setattr(KpAccessor, "_update_cache", fake_update_cache, raising=True)
-    return KpAccessor()
+    ka = KpAccessor()
+    ka._update_cache()
+    return ka
 
 
 # ---- Tests -------------------------------------------------------------------
@@ -259,4 +260,5 @@ def test_samples_discretize_and_match_value(accessor_with_samples: KpAccessor, d
 def test_all_keys_present_in_cache(accessor_with_samples: KpAccessor):
     ka = accessor_with_samples
     for dt, _ in SAMPLES:
+        ka.get_kv_covering_datetime(dt, three_hour_discretization=True) 
         assert floor_to_3h_utc(dt) in ka._sd
