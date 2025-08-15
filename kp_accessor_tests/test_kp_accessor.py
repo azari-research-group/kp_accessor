@@ -1,12 +1,11 @@
 import random
 from typing import Dict, Iterable, Tuple
-import warnings
 from datetime import datetime, timedelta, timezone
 
 import pytest
 from sortedcontainers import SortedDict
 
-from kp_accessor.kp_accessor import KpAccessor
+from kp_accessor.kp_accessor import _KpAccessor as KpAccessor
 
 # ---- Helpers -----------------------------------------------------------------
 

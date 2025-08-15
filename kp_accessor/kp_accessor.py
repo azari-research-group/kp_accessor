@@ -12,7 +12,7 @@ from kp_accessor.data_retrieval import (
 )
 
 
-class KpAccessor:
+class _KpAccessor:
     """
     A class that provides access to Kp values (at 3-hour discretization)
         from the GFZ Helmholtz Centre for Geosciences in O(1) time.
@@ -139,7 +139,7 @@ class KpAccessor:
         return self.get_kp_from_datetime(dt)
 
 
-kp_accessor = KpAccessor()
+kp_accessor = _KpAccessor()
 
 if __name__ == "__main__":
     dt = datetime(2023, 10, 1, 12, 0, tzinfo=timezone.utc)

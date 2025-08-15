@@ -1,7 +1,5 @@
-from kp_accessor import KpAccessor
+from kp_accessor import kp_accessor
 from datetime import datetime, timedelta, timezone, tzinfo
-
-kp_accessor = KpAccessor()
 
 # Generate random datetimes between 1930 and 2024
 # choose random timezones, too
